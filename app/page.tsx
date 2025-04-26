@@ -180,23 +180,25 @@ export default function Home() {
 
         {/* Cache Diagram */}
         <div className="flex items-center justify-center overflow-x-auto space-x-4 p-4 bg-gray-100 rounded-lg">
-          <AnimatePresence>
-            {Array.isArray(cache) && cache.map((item, index) => (
-              <motion.div
-                key={item.key}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0 }}
-                className="bg-purple-400 p-4 rounded-lg shadow-md min-w-[100px] text-center relative"
-              >
-                <div className="font-bold">{item.key}</div>
-                <div className="text-sm">{item.value}</div>
-                {index < cache.length - 1 && (
-                  <div className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 text-2xl">➡️</div>
-                )}
-              </motion.div>
-            ))}
-          </AnimatePresence>
+<AnimatePresence>
+  {Array.isArray(cache) && cache.map((item, index) => (
+    <motion.div
+      key={item.key}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0 }}
+    >
+      <div className="bg-purple-400 p-4 rounded-lg shadow-md min-w-[100px] text-center relative">
+        <div className="font-bold">{item.key}</div>
+        <div className="text-sm">{item.value}</div>
+        {index < cache.length - 1 && (
+          <div className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 text-2xl">➡️</div>
+        )}
+      </div>
+    </motion.div>
+  ))}
+</AnimatePresence>
+
         </div>
       </div>
 
