@@ -14,7 +14,10 @@ export default function Home() {
   const [cache, setCache] = useState<{ key: string; value: string }[]>([]);
   const [result, setResult] = useState<string>('');
 
-  const apiUrl = cacheType === 'lru' ? 'http://localhost:9090/api/lru' : 'http://localhost:9090/api/lru-ttl';
+const apiUrl = cacheType === 'lru'
+  ? 'https://lru-ttl-backend-production.up.railway.app/api/lru'
+  : 'https://lru-ttl-backend-production.up.railway.app/api/lru-ttl';
+
 
   const handleSetCapacity = async () => {
     try {
